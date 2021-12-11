@@ -9,15 +9,22 @@ public class AnimalBehaviour : MonoBehaviour
     private Rigidbody animalBody;
     private Transform rotateTo;
     private Transform rotateFrom;
-
+    private RaycastHit Hit;
+    public Animator animator;
 
     void Start()
     {
         this.animalBody = GetComponent<Rigidbody>();
     }
-    // Update is called once per frame
+
     void Update()
     {
-        // this.animalBody.MoveRotation(Quaternion.Slerp(this.rotateFrom.rotation, this.rotateTo.rotation, Time.deltaTime / 1));
+        transform.Translate(Vector3.forward * 5 * Time.deltaTime);
+        animator.SetFloat("Speed", 1);
+
+    }
+
+    private void OnCollisionEnter(Collision other) {
+        transform.Rotate(Vector3.up * UnityEngine.Random.Range(90, 180));
     }
 }
