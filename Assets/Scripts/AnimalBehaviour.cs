@@ -25,6 +25,10 @@ public class AnimalBehaviour : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision other) {
-        transform.Rotate(Vector3.up * UnityEngine.Random.Range(90, 180));
+        if(other.gameObject.tag == "fence" || other.gameObject.tag == "barn") {
+            transform.Rotate(Vector3.up * UnityEngine.Random.Range(90, 180));
+        } else {
+            Physics.IgnoreLayerCollision(6, 6);
+        }
     }
 }
