@@ -9,14 +9,24 @@ public class PlayerMovement : MonoBehaviour
     public float rotationSpeed;
     public bool IsRunning;
     public Animator anim;
-    private bool canBuy;
+    private bool canBuySheep;
+    private bool canBuyWolf;
     Bank mySold;
     float gravity;
+    float moveHorizontal;
+    float moveVertical;
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(transform.parent.gameObject);
+        
+    }
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         mySold = GetComponent<Bank>();
+
     }
 
     // Update is called once per frame
@@ -24,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     {
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
         float moveVertical = Input.GetAxisRaw("Vertical");
+        
         Vector3 MoveDirection = new Vector3(-moveHorizontal, 0, -moveVertical);
         anim.SetFloat("Speed", MoveDirection!=Vector3.zero?1:0);
         MoveDirection.Normalize();
@@ -37,28 +48,40 @@ public class PlayerMovement : MonoBehaviour
 
         //Gestion Trigger
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Submit"))
         {
             Debug.Log(mySold.getMoney());
-         
-            if (canBuy == true)
+            if (canBuySheep)
             {
                 mySold.buySheep();
+            }
+            if (canBuyWolf)
+            {
+                mySold.buyWolf();
             }
         }
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.name == "uglyVan")
+        if(other.name == "shopSheep")
         {
-            canBuy = true;
+            canBuySheep = true;
+        }
+        if (other.name == "shopWolf")
+        {
+            canBuyWolf = true;
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.name == "uglyVan")
+        if (other.name == "shopSheep")
         {
-            canBuy = false;
+            canBuySheep = false;
+        }
+        if(other.name == "shopWolf")
+        {
+            canBuyWolf = false;
         }
     }
+
 }

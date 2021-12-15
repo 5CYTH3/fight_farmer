@@ -6,6 +6,7 @@ TagManager:
   tags:
   - fence
   - barn
+  - sheep
   layers:
   - Default
   - TransparentFX
@@ -15,8 +16,8 @@ TagManager:
   - UI
   - animal collision
   - environment collision
-  - 
-  - 
+  - Player1
+  - Player2
   - 
   - 
   - 
