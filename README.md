@@ -5,6 +5,6 @@ The goal is to have the more money than the guy you face.
 
 - [x] Add sheeps and map.
 - [x] Add player.
-- [] Add second controller support.
-- [] Add cows.
-- [] Better UI
+- [ ] Add second controller support.
+- [ ] Add cows.
+- [ ] Better UI
