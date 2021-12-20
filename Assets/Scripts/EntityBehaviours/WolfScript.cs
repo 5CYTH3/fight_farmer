@@ -25,8 +25,8 @@ public class WolfScript : MonoBehaviour
         if (collision.transform.tag == "sheep")
         {
             health--;
-
             Destroy(collision.gameObject);
+            
         }
     }
 }

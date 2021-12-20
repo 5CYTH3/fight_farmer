@@ -29,7 +29,7 @@ public class AnimalBehaviour : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision other) {
-        if(other.gameObject.tag == "fence" || other.gameObject.tag == "barn") {
+        if(other.gameObject.tag == "fence") {
             transform.Rotate(Vector3.up * UnityEngine.Random.Range(90, 180));
         }
     }

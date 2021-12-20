@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class Timer : MonoBehaviour
 {
@@ -18,8 +19,11 @@ public class Timer : MonoBehaviour
     void Update()
     {
         timeLeft -= Time.deltaTime;
-        
-        TimeLeftUi.text = UnityEngine.Mathf.Round(timeLeft).ToString();
+        TimeSpan t = TimeSpan.FromSeconds(UnityEngine.Mathf.Round(timeLeft));
+        string timeLeftFormatted = string.Format("{0:D2}:{1:D2}", t.Minutes, t.Seconds);
+
+        TimeLeftUi.text = timeLeftFormatted;
+
         if (timeLeft < 0)
         {
             GameOver();

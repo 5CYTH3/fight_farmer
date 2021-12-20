@@ -10,7 +10,6 @@ public class UiGestion : MonoBehaviour
     public Text rightPlayerMoney;
     public Text NumberOfSheepRight;
     public Text NumberOfSheepLeft;
-
     public GameObject player1;
     public GameObject player2;
 

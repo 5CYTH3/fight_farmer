@@ -33,7 +33,7 @@ public class GetWinner : MonoBehaviour
         }
         else
         {
-            GagnantText.text = "Egalité";
+            GagnantText.text = "EgalitÃ©";
         }
     }
 }

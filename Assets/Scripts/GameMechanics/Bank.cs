@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bank : MonoBehaviour
 {
-    public int Money;
+    public int currentMoney;
     public Farm myFarm;
 
 
@@ -15,44 +15,43 @@ public class Bank : MonoBehaviour
 
     }
 
-    public void CreateBank(int Montant)
+    public void CreateBank(int amount)
     {
-        Money = Montant;
+        currentMoney = amount;
     }
 
     public int getMoney()
     {
-        return Money;
+        return this.currentMoney;
     }
 
     public void buySheep()
     {
-        if (Money >= 25)
+        if (currentMoney >= 25)
         {
-            Money = Money - 25;
+            this.currentMoney = currentMoney - 25;
             myFarm.spawnSheep();
         }
     }
 
     public void buyWolf()
     {
-        if(Money >= 75)
+        if(this.currentMoney >= 75)
         {
-            Money = Money - 75;
+            this.currentMoney = this.currentMoney - 75;
             myFarm.spawnWolf();
         }
     }
 
     public void addMoney(int MoneytoAdd)
     {
-        Money += MoneytoAdd;
+        this.currentMoney += MoneytoAdd;
     }
 
     IEnumerator GenerateMoneyOverTime()
     {
-        while (true)
-        {
-            Money += (myFarm.numberOfSheep * 5);
+        while (true) {
+            this.currentMoney += (myFarm.numberOfSheep * 5);
             yield return new WaitForSeconds(15f);
         }
     }
