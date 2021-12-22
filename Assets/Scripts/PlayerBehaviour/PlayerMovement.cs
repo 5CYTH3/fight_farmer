@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : Player
 {
     public Rigidbody rb;
     public float speed;
     public float rotationSpeed;
     public bool IsRunning;
     public Animator anim;
-    private bool canBuySheep;
-    private bool canBuyWolf;
     Bank mySold;
     float gravity;
     float moveHorizontal;
@@ -51,37 +49,13 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Submit"))
         {
             Debug.Log(mySold.getMoney());
-            if (canBuySheep)
-            {
+            if (getCanBuySheep()) {
                 mySold.buySheep();
-            }
-            if (canBuyWolf)
-            {
+            } else if(getCanBuyWolf()) {
                 mySold.buyWolf();
             }
         }
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.name == "shopSheep")
-        {
-            canBuySheep = true;
-        }
-        if (other.name == "shopWolf")
-        {
-            canBuyWolf = true;
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.name == "shopSheep")
-        {
-            canBuySheep = false;
-        }
-        if(other.name == "shopWolf")
-        {
-            canBuyWolf = false;
-        }
-    }
+
 
 }

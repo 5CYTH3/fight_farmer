@@ -2,20 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovementFirst2 : MonoBehaviour
+public class PlayerMovementFirst2 : Player
 {
     public Rigidbody rb;
     public float speed;
     public float rotationSpeed;
     public bool IsRunning;
     public Animator anim;
-    private bool canBuy;
     Bank mySold;
     float gravity;
     float moveHorizontal;
     float moveVertical;
-    private bool canBuySheep;
-    private bool canBuyWolf;
 
     // Start is called before the first frame update
     private void Awake()
@@ -47,42 +44,16 @@ public class PlayerMovementFirst2 : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed);
         }
 
-        //Gestion Trigger
-
+        // Gestion Trigger
         if (Input.GetKeyDown(KeyCode.RightControl))
         {
             Debug.Log(mySold.getMoney());
          
-            if (canBuySheep == true)
-            {
+            if (getCanBuySheep()) {
                 mySold.buySheep();
-            }
-            if(canBuyWolf == true)
-            {
+            } else if(getCanBuyWolf()) {
                 mySold.buyWolf();
             }
-        }
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.name == "shopSheep")
-        {
-            canBuySheep = true;
-        }
-        if (other.name == "shopWolf")
-        {
-            canBuyWolf = true;
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.name == "shopSheep")
-        {
-            canBuySheep = false;
-        }
-        if (other.name == "shopWolf")
-        {
-            canBuyWolf = false;
         }
     }
 }

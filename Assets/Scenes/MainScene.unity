@@ -132,6 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3808530}
+  - component: {fileID: 3808531}
   m_Layer: 0
   m_Name: Entities
   m_TagString: Untagged
@@ -153,6 +154,22 @@ Transform:
   m_Father: {fileID: 978736664}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3808531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3808529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1fc7fdc60739fc439f077a9e2a9ab6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wolf: {fileID: 7972177859586278029, guid: ba990212939f143489880900fcdf571c, type: 3}
+  cow: {fileID: 0}
+  sheep: {fileID: 7059635665051617664, guid: 3d21e56d90daec54fb8e6577fdaca61a, type: 3}
+  bigHornSheep: {fileID: 3395460974347912993, guid: 7d073bf963a7eca49abe96b29736b9b5, type: 3}
 --- !u!1 &29153562
 GameObject:
   m_ObjectHideFlags: 0
@@ -1846,17 +1863,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 785299035947966802, guid: b9cf5258f0ac046429b5b63205573ac6, type: 3}
   m_PrefabInstance: {fileID: 317745123}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &313686288 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 121071608794381292, guid: b9cf5258f0ac046429b5b63205573ac6, type: 3}
-  m_PrefabInstance: {fileID: 317745123}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 685434890}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9661cd9add5dd6c49b601abc768d8272, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &317745123
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1864,6 +1870,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 259249849}
     m_Modifications:
+    - target: {fileID: 121071608794381288, guid: b9cf5258f0ac046429b5b63205573ac6, type: 3}
+      propertyPath: m_Name
+      value: PlayerTwoObject
+      objectReference: {fileID: 0}
     - target: {fileID: 121071608794381288, guid: b9cf5258f0ac046429b5b63205573ac6, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -1879,11 +1889,15 @@ PrefabInstance:
     - target: {fileID: 121071608794381290, guid: b9cf5258f0ac046429b5b63205573ac6, type: 3}
       propertyPath: myFarm
       value: 
-      objectReference: {fileID: 313686288}
+      objectReference: {fileID: 0}
     - target: {fileID: 121071608794381290, guid: b9cf5258f0ac046429b5b63205573ac6, type: 3}
       propertyPath: currentMoney
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 121071608794381290, guid: b9cf5258f0ac046429b5b63205573ac6, type: 3}
+      propertyPath: entityListenerObject
+      value: 
+      objectReference: {fileID: 3808529}
     - target: {fileID: 121071608794381292, guid: b9cf5258f0ac046429b5b63205573ac6, type: 3}
       propertyPath: wolf
       value: 
@@ -2429,6 +2443,7 @@ GameObject:
   - component: {fileID: 443110236}
   - component: {fileID: 443110235}
   - component: {fileID: 443110234}
+  - component: {fileID: 443110238}
   m_Layer: 5
   m_Name: GlobalUI
   m_TagString: Untagged
@@ -2518,6 +2533,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &443110238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443110233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c133d9d412c65864b9960ce83375a3ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftPlayerMoney: {fileID: 35028055}
+  rightPlayerMoney: {fileID: 747308691}
+  NumberOfSheepRight: {fileID: 1212189513}
+  NumberOfSheepLeft: {fileID: 1648140683}
+  TimeLeftUi: {fileID: 905407184}
+  player1: {fileID: 190509339}
+  player2: {fileID: 685434890}
+  gameController: {fileID: 1803779367}
 --- !u!1001 &443302813
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3088,6 +3123,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 759407908}
     m_Modifications:
     - target: {fileID: 121071608794381288, guid: b9cf5258f0ac046429b5b63205573ac6, type: 3}
+      propertyPath: m_Name
+      value: PlayerOneObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 121071608794381288, guid: b9cf5258f0ac046429b5b63205573ac6, type: 3}
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
@@ -3100,9 +3139,17 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 121071608794381290, guid: b9cf5258f0ac046429b5b63205573ac6, type: 3}
+      propertyPath: myFarm
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 121071608794381290, guid: b9cf5258f0ac046429b5b63205573ac6, type: 3}
       propertyPath: currentMoney
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 121071608794381290, guid: b9cf5258f0ac046429b5b63205573ac6, type: 3}
+      propertyPath: entityListenerObject
+      value: 
+      objectReference: {fileID: 3808529}
     - target: {fileID: 121071608794381292, guid: b9cf5258f0ac046429b5b63205573ac6, type: 3}
       propertyPath: wolf
       value: 
@@ -7706,7 +7753,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cefb259ed8882b46a9ded2c10413140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeLeftUi: {fileID: 905407184}
   timeLeft: 240
 --- !u!1001 &1816507376
 PrefabInstance:
