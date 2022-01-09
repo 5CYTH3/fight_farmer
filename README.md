@@ -8,3 +8,6 @@ The goal is to have the more money than the guy you face.
 - [ ] Add second controller support.
 - [ ] Add cows.
 - [ ] Better UI
+
+Project abandoned, sadly but the control system cannot work for all the ideas we have.
+I'll let everyone contribute or commit but for now, I won't continue working on it !
