@@ -1181,6 +1181,37 @@ MonoBehaviour:
   rotationSpeed: 20
   shop: {fileID: 1803779368}
   anim: {fileID: 190509344}
+--- !u!114 &190509341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 190509339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e028ff7df95027347971ed836acd0019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entityListenerObject: {fileID: 3808529}
+  currentMoney: 50
+  myFarm: {fileID: 0}
+--- !u!114 &190509342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 190509339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9661cd9add5dd6c49b601abc768d8272, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfSheep: 0
+  numberOfWolf: 0
+  SpawnPoint: {fileID: 1903775028}
+  SpawnPointWolf: {fileID: 870518275}
 --- !u!95 &190509344 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 968071803435168944, guid: b9cf5258f0ac046429b5b63205573ac6, type: 3}
@@ -1896,7 +1927,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 306641401}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4155941362199340420, guid: 8c7624d06c71dc74aaed9f47db355e0f, type: 3}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &306641401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3566,7 +3609,9 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 121071608794381290, guid: b9cf5258f0ac046429b5b63205573ac6, type: 3}
+    - {fileID: 121071608794381292, guid: b9cf5258f0ac046429b5b63205573ac6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b9cf5258f0ac046429b5b63205573ac6, type: 3}
 --- !u!4 &556424865 stripped
 Transform:
@@ -9259,7 +9304,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2035855727}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11500000, guid: e028ff7df95027347971ed836acd0019, type: 3}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2035855727
 MonoBehaviour:
   m_ObjectHideFlags: 0
