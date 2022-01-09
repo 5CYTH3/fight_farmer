@@ -19,19 +19,16 @@ public class EnterFarmHouse : MonoBehaviour
     void Update()
     {
         isColliding = false;
-
     }
     private void OnTriggerEnter(Collider other)
     {
 
         if (isColliding) return;
-        if(mainCam.name == "Player1Camera" && other.gameObject.layer == 8)
-        {
+        if(mainCam.name == "Player1Camera" && other.gameObject.layer == 8) {
             mainCam.enabled = false;
             farmCam.enabled = true;
         }
-        else if(mainCam.name == "Player2Camera" && other.gameObject.layer == 9)
-        {
+        else if(mainCam.name == "Player2Camera" && other.gameObject.layer == 9) {
             mainCam.enabled = false;
             farmCam.enabled = true;
         }
@@ -45,7 +42,6 @@ public class EnterFarmHouse : MonoBehaviour
         isColliding = true;
         if (mainCam.name == "Player1Camera" && other.gameObject.layer == 8)
         {
-
             mainCam.enabled = true;
             farmCam.enabled = false;
         }

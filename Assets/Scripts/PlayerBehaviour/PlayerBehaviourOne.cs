@@ -2,36 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovementFirst2 : Player
+public class PlayerBehaviourOne : Player
 {
+    public bool IsRunning;
     public Rigidbody rb;
     public float speed;
     public float rotationSpeed;
-    public bool IsRunning;
+    public Shops shop;
     public Animator anim;
-    Bank mySold;
     float gravity;
     float moveHorizontal;
     float moveVertical;
-
     // Start is called before the first frame update
+
     private void Awake()
     {
         DontDestroyOnLoad(transform.parent.gameObject);
+        
     }
-
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        mySold = GetComponent<Bank>();
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        float moveHorizontal = Input.GetAxisRaw("P2_Horizontale");
-        float moveVertical = Input.GetAxisRaw("P2_Verticale");
+        movementHandler();
+        useButtonHandler();
+    }
+
+    void movementHandler() {
+        float moveHorizontal = Input.GetAxisRaw("Horizontal");
+        float moveVertical = Input.GetAxisRaw("Vertical");
         
         Vector3 MoveDirection = new Vector3(-moveHorizontal, 0, -moveVertical);
         anim.SetFloat("Speed", MoveDirection!=Vector3.zero?1:0);
@@ -43,17 +46,14 @@ public class PlayerMovementFirst2 : Player
             Quaternion toRotation = Quaternion.LookRotation(MoveDirection,Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed);
         }
+    }
 
-        // Gestion Trigger
-        if (Input.GetKeyDown(KeyCode.RightControl))
-        {
-            Debug.Log(mySold.getMoney());
-         
-            if (getCanBuySheep()) {
-                mySold.buySheep();
-            } else if(getCanBuyWolf()) {
-                mySold.buyWolf();
+    void useButtonHandler() {
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Submit")) {
+            if (canBuy) {
+                shop.openUi();
             }
         }
     }
+
 }

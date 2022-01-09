@@ -11,6 +11,7 @@ public class InstanciationUI : MonoBehaviour
     public Text NumberOfSheepRight;
     public Text NumberOfSheepLeft;
     public Text TimeLeftUi;
+    
     public GameObject player1;
     public GameObject player2;
     public GameObject gameController;

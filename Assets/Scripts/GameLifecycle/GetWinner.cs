@@ -23,16 +23,11 @@ public class GetWinner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(player1Money > player2Money)
-        {
+        if(player1Money > player2Money) {
             GagnantText.text = "Player 1 est gagnant";
-        }
-        else if(player1Money < player2Money)
-        {
+        } else if(player1Money < player2Money) {
             GagnantText.text = "Player 2 est gagnant";
-        }
-        else
-        {
+        } else {
             GagnantText.text = "Egalité";
         }
     }
